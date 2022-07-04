@@ -1,125 +1,172 @@
-* {
-  box-sizing: border-box;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 }
-body{
-  /* background-image: linear-gradient(to right, rgba(232, 108, 108, 0.852),rgb(222, 38, 69)); */
-  background-color: rgb(212, 63, 87);
-  animation-name: example;
-  animation-duration: 4s;
-}
-@keyframes example{
-  from{background-color: rgb(212, 63, 87) ;}
-  to{background-color:rgba(235, 89, 89, 0.852) ;}
-}
-.header h1{
-  color: rgb(243, 171, 39);
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  text-align: center;
-  text-decoration-line: underline;
-  text-decoration-color: rgb(127, 195, 195);
-}
-.box1{
-  border-radius:15px 0px 0px 15px;
-  margin-top: 40;
-  background-color: rgb(239, 142, 158);
-  float: left;
-  width: 40%;
-  height: 400px;
-  margin-left: 10%;
-  text-align: center;
-}
-.content{
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-.box2{
-  border-radius:0px 15px 15px 0px;
-  margin-top: 40;
-  background-color: rgb(234, 108, 129);
-  float: right;
-  width: 40%;
-  height: 400px;
-  margin-right: 10%;
-  box-shadow: blue;
-  text-align: center;
 
+html {
+    font-size: 62%;
+    box-sizing: border-box;
 }
+.headline{
+  margin-top: 0;
+  font-size: x-large;
+  color: aqua;
+  display: flex;
+}
+
+body {
+    font-family:sans-serif;
+    font-weight: 400;
+    height: 100vh;
+    color: #333;
+    background-color: #c78636;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Layout */
+main{
+    position: relative;
+    width: 90rem;
+    height: 50rem;
+    background-color: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(200px);
+    filter: blur();
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.25);
+    border-radius: 9px;
+    overflow: hidden;
+    display: flex;
+}
+.player {
+  flex: 50%;
+  padding: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 1s;
+}
+
+/*Elements*/
+
+.name{
+    position:relative;
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+.score {
+    font-size: 8rem;
+    font-weight: 300;
+    color: #c736c4;
+    margin-bottom: auto;
+  }
+  
+  .player--active {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  .player--active .name {
+    font-weight: 700;
+  }
+  .player--active .score {
+    font-weight: 400;
+  }
+  
+  .player--active .current {
+    opacity: 1;
+  }
+  
+  .current {
+    background-color: #c7365f;
+    opacity: 0.8;
+    border-radius: 5px;
+    color: #fff;
+    width: 65%;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.75s;
+  }
+  
+  .current-label {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-size: 1.7rem;
+    color: #ddd;
+  }
+  
+  .current-score {
+    font-size: 3.5rem;
+  }
+
+  /* ABSOLUTE POSITIONED ELEMENTS */
 .btn {
-  border-radius: 5px;
-  height: 30px;
-  width: 130px;
-  text-decoration: solid;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bolder;
-  background: rgb(236, 234, 234);
-  color: rgb(14, 13, 13);
-  border: 3px solid rgb(0, 0, 0);
-  position:absolute;
+  position: absolute;
   left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+  transform: translateX(-50%);
+  color: #444;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+
+  padding: 0.7rem 2.5rem;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
 }
-.btn:hover {
-  border: 1px saddlebrown;
-  background: rgb(255, 30, 0);
-  transition: 1s;
+
+.btn::first-letter {
+  font-size: 2.4rem;
+  display: inline-block;
+  margin-right: 0.7rem;
 }
-.btn1 {
-  border-radius: 5px;
-  margin-left: 4;
-  padding: 1em;
-  height: 60px;
-  width: 129px;
-  text-decoration: solid;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bolder;
-  background: rgb(236, 234, 234);
-  color: rgb(14, 13, 13);
-  border: 3px solid rgb(0, 0, 0);
-  position:absolute;
-  top: 40vh;
+
+.newgame {
+  top: 4rem;
+}
+.rolldice {
+  top: 35rem;
+}
+.holddice {
+  top: 45rem;
+}
+
+.btn:active {
+  transform: translate(-50%, 3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.dice {
+  position: absolute;
   left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+  top: 16.5rem;
+  transform: translateX(-50%);
+  height: 10rem;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
 }
-.btn2 {
-  border-radius: 5px;
-  margin-left: 4;
-  padding: .5em;
-  height: 50px;
-  width: 100px;
-  text-decoration: solid;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bolder;
-  background: rgb(236, 234, 234);
-  color: rgb(14, 13, 13);
-  border: 3px solid rgb(0, 0, 0);
-  position:absolute;
-  top: 55vh;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+
+.winner {
+  background-color: #2f2f2f;
 }
-.innerbox1{
-  box-shadow: 6px 6px 8px;
-  border-radius: 5px;
-  position:relative;
-  top: 23vh;
-  width: 200px;
-  height: 80px;
-  margin-left: 20vh;
-  background-color: rgb(169, 233, 72);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size:larger;
+
+.winner .name {
+  font-weight: 700;
+  color: #c7365f;
 }
-.innerbox2{
-  box-shadow: 6px 6px 8px;
-  border-radius: 5px;
-  position:relative;
-  top: 23vh;
-  width: 200px;
-  height: 80px;
-  margin-left: 20vh;
-  background-color:rgb(169, 233, 72);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: larger;
-}
+  
+
